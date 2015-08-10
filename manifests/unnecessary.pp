@@ -23,14 +23,14 @@
 
 class user::unnecessary {
     case $osfamily {
-        RedHat: {
+        'RedHat': {
             case $operatingsystemrelease {
                 /^6.*/: { include user::unnecessary::rhel6 }
                 /^5.*/: { include user::unnecessary::rhel5 }
-                default: { unimplemented() }
+                default: { fail "unimplemented on ${::osfamily} ${::operatingsystemrelease}" }
             }
         }
-        Darwin: {}
-        default: { unimplemented() }
+        'Darwin': {}
+        default: { fail "unimplemented on ${::osfamily}" }
     }
 }
