@@ -37,13 +37,13 @@ class user::valid {
         if $has_avahi == 'true' {
             file { '/var/lib/avahi-autoipd':
                 ensure => directory,
-                owner => 'avahi-autoipd', group => 'root', mode => 0755,
+                owner => 'avahi-autoipd', group => 'root', mode => '0755',
             }
         }
         if $has_pulse == 'true' {
             file { '/var/run/pulse':
                 ensure => directory,
-                owner => 'pulse', group => 'root', mode => 0755,
+                owner => 'pulse', group => 'root', mode => '0755',
             }
         }
     }
